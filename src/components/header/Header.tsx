@@ -3,17 +3,15 @@ import { GlobalOutlined } from "@ant-design/icons";
 import logo from "../../assets/logo.svg";
 import styles from "./Header.module.css";
 import {
-  useHistory,
   useLocation,
   useParams,
-  useRouteMatch,
+  useNavigate,
 } from "react-router-dom";
 
 export const Header: React.FC = () => {
-  const history = useHistory();
   const location = useLocation();
   const params = useParams();
-  const match = useRouteMatch();
+  const navigate = useNavigate();
   return (
     <div className={styles["app-header"]}>
       {/* top-header */}
@@ -35,13 +33,13 @@ export const Header: React.FC = () => {
             语言
           </Dropdown.Button>
           <Button.Group className={styles["button-group"]}>
-            <Button onClick={() => history.push("register")}>注册</Button>
-            <Button onClick={() => history.push("signIn")}>登录</Button>
+            <Button onClick={() => navigate("register")}>注册</Button>
+            <Button onClick={() => navigate("signIn")}>登录</Button>
           </Button.Group>
         </div>
       </div>
       <Layout.Header className={styles["main-header"]}>
-        <span onClick={() => history.push("/")}>
+        <span onClick={() => navigate("/")}>
           <img src={logo} alt="logo" className={styles["App-logo"]}></img>
           <Typography.Title level={3} className={styles.title}>
             React Travel

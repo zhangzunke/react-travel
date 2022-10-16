@@ -1,7 +1,7 @@
 import { Image, Typography } from "antd";
-import { withRouter, RouteComponentProps, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-interface PropsType extends RouteComponentProps {
+interface PropsType {
   id: string | number;
   size: "large" | "small";
   imageSrc: string;
@@ -14,10 +14,7 @@ const ProductImageComponent: React.FC<PropsType> = ({
   size,
   imageSrc,
   price,
-  title,
-  location,
-  history,
-  match,
+  title
 }) => {
   return (
     <Link to={`/detail/${id}`}>
@@ -36,4 +33,4 @@ const ProductImageComponent: React.FC<PropsType> = ({
   );
 };
 
-export const ProductImage = withRouter(ProductImageComponent);
+export const ProductImage = ProductImageComponent;

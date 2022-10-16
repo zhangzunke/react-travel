@@ -12,8 +12,10 @@ import sideImage3 from "../../assets/images/sider_2019_02-04-2.png";
 import { productList1, productList2, productList3 } from "./mockups";
 import { Col, Row, Typography } from "antd";
 import styles from "./HomePage.module.css";
+import { withRouter, RouteComponetProps } from "../../helpers/withRouter";
 
-export class HomePage extends React.Component {
+class HomePageComponent extends React.Component<RouteComponetProps> {
+  // this.props.navigate;
   render() {
     return (
       <>
@@ -64,3 +66,5 @@ export class HomePage extends React.Component {
     );
   }
 }
+
+export const HomePage = withRouter(HomePageComponent);
