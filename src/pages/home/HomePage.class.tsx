@@ -12,13 +12,11 @@ import sideImage3 from "../../assets/images/sider_2019_02-04-2.png";
 import { productList1, productList2, productList3 } from "./mockups";
 import { Col, Row, Typography } from "antd";
 import styles from "./HomePage.module.css";
-import { withTranslation, WithTranslation } from "react-i18next";
-import { t } from "i18next";
+import { withRouter, RouteComponetProps } from "../../helpers/withRouter";
 
-class HomePageComponent extends React.Component<WithTranslation> {
+class HomePageComponent extends React.Component<RouteComponetProps> {
+  // this.props.navigate;
   render() {
-    console.log(this.props.t);
-    const t = this.props.t;
     return (
       <>
         <Header />
@@ -38,7 +36,7 @@ class HomePageComponent extends React.Component<WithTranslation> {
           <ProductCollection
             title={
               <Typography.Title level={3} type="warning">
-                {t("home_page.hot_recommended")}
+                Hot Product
               </Typography.Title>
             }
             sideImage={sideImage}
@@ -47,7 +45,7 @@ class HomePageComponent extends React.Component<WithTranslation> {
           <ProductCollection
             title={
               <Typography.Title level={3} type="danger">
-                {t("home_page.new_arrival")}
+                New Product
               </Typography.Title>
             }
             sideImage={sideImage2}
@@ -56,7 +54,7 @@ class HomePageComponent extends React.Component<WithTranslation> {
           <ProductCollection
             title={
               <Typography.Title level={3} type="success">
-                {t("home_page.domestic_travel")}
+                Trival Recommand
               </Typography.Title>
             }
             sideImage={sideImage3}
@@ -69,4 +67,4 @@ class HomePageComponent extends React.Component<WithTranslation> {
   }
 }
 
-export const HomePage = withTranslation()(HomePageComponent);
+export const HomePage = withRouter(HomePageComponent);
